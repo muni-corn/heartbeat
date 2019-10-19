@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root'
 })
 export class HttpService {
+    getUsers(): any {
+        throw new Error('Method not implemented.');
+    }
 
     constructor(private http: HttpClient) { }
 
@@ -14,6 +17,12 @@ export class HttpService {
                 msg
             },
             responseType: 'text'
+        }).toPromise();
+    }
+
+    public async getUsers(): Promise<any> {
+        return await this.http.get('/api/users.php', {
+            responseType: 'json'
         }).toPromise();
     }
 }

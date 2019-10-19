@@ -11,14 +11,15 @@ export class LoginComponent implements OnInit {
     username = '';
     password = '';
 
+    users: any;
+
     constructor(private http: HttpService) { }
 
     ngOnInit() {
     }
 
     async signIn() {
-        const ret = await this.http.test(this.username);
-        console.log(ret)
+        this.users = await this.http.getUsers();
     }
 
 }
