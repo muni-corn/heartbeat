@@ -5,10 +5,6 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root'
 })
 export class HttpService {
-    getUsers(): any {
-        throw new Error('Method not implemented.');
-    }
-
     constructor(private http: HttpClient) { }
 
     public async test(msg: string): Promise<any> {
