@@ -4,6 +4,9 @@ div.card
     
     input.wide([(ngModel)]="username", placeholder="Username")
     input.wide([(ngModel)]="password", placeholder="Password", type="password")
+
+    h2 Users (from db)
+    p {{ users | json }}
     
 .actions
     button((click)="signIn()") Sign in
