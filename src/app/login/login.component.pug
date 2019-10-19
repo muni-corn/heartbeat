@@ -1,0 +1,10 @@
+h1 Heartbeat
+div.card 
+    h2 Sign in
+    
+    input.wide([(ngModel)]="username", placeholder="Username")
+    input.wide([(ngModel)]="password", placeholder="Password", type="password")
+    
+.actions
+    button((click)="signIn()") Sign in
+

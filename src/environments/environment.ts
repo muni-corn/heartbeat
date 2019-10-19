@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+    production: false,
+    apiProxy: {
+        target: 'http://localhost:3000',
+        secure: false,
+        pathRewrite: {
+            '^/api': ''
+        },
+        logLevel: 'debug'
+    }
 };
 
 /*
