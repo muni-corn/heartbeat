@@ -4,14 +4,7 @@
 
 export const environment = {
     production: false,
-    apiProxy: {
-        target: 'http://localhost:3000',
-        secure: false,
-        pathRewrite: {
-            '^/api': ''
-        },
-        logLevel: 'debug'
-    }
+    apiURL: ''
 };
 
 /*
