@@ -15,9 +15,6 @@ export class LoginComponent implements OnInit {
 
     constructor(private http: HttpService) { }
 
-    ngOnInit() {
-    }
-
     async signIn() {
         this.users = await this.http.getUsers();
     }
