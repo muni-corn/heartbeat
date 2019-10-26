@@ -1,13 +1,10 @@
 h1 Heartbeat
 div.card 
-    // h2 Sign in
+    h2 Sign in
     
-    // input.wide([(ngModel)]="username", placeholder="Username")
-    // input.wide([(ngModel)]="password", placeholder="Password", type="password")
-
-    h2 Users (from db)
-    p(style="color: white; max-width: 100%;") {{ users | json }}
+    input.wide([(ngModel)]="username", placeholder="Username")
+    input.wide([(ngModel)]="password", placeholder="Password", type="password")
     
 .actions
-    button((click)="signIn()") Get users
-
+    button((click)="goToRegister()") New account
+    button((click)="signIn()") Sign in

@@ -16,9 +16,4 @@ export class HttpService {
         }).toPromise();
     }
 
-    public async getUsers(): Promise<any> {
-        return await this.http.get('/api/users.php', {
-            responseType: 'json'
-        }).toPromise();
-    }
 }
