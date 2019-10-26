@@ -38,13 +38,13 @@ export class RegisterComponent implements OnInit {
             this.errors = '';
         }
 
-        this.id = await this.userService.newUser(this.username);
+        this.id = await this.userService.newUser(this.username, this.password);
         this.showSuccess();
     }
 
     showSuccess() {
-        this.messages = 
-            'Your account has been created! ' + 
+        this.messages =
+            'Your account has been created! ' +
             'Nothing else happens here yet. ' +
             'But to demonstrate that the database is working, ' +
             'here\'s the ID that was returned when we created your account:';
