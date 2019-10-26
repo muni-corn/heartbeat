@@ -8,9 +8,10 @@ export class UserService {
 
     constructor(private http: HttpClient) { }
 
-    public async newUser(username: string): Promise<string> {
+    public async newUser(username: string, password: string): Promise<string> {
         return await this.http.post('/api/new_user.php', {
-            username
+            username,
+            password
         }, {
             responseType: 'text'
         }).toPromise();
