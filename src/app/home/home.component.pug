@@ -11,7 +11,8 @@ div(*ngIf="recipient; else emptyLinks")
 ng-template(#emptyLinks)
     div
         h2 You're not linked to anybody
-        p To send heartbeats to someone, link with them by entering their key below. If someone else wants to link with you, your key is
+        p To send heartbeats to someone, link with them by entering their key below. If someone else wants to link with you, your key is 
             b {{ key }}
+            |.
         input([(ngModel)]="newKey", placeholder="Enter a key", style="display: inline")
         button((click)="newLink()") Submit
