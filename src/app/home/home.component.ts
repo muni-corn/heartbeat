@@ -12,16 +12,25 @@ export class HomeComponent implements OnInit {
     key: string;
     newKey: string;
 
+    recipient: { name: string } = {name: 'test recipient'};
+
+    heartbeatCount = 0;
+
     constructor(
         private linkService: LinkService,
         private authService: AuthService
     ) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.key = this.authService.getUserKeycode();
     }
 
     newLink() {
         this.linkService.newLinkRequest(this.newKey);
     }
+
+    beat() {
+        this.heartbeatCount++;
+    }
+
 }

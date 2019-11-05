@@ -1,18 +1,25 @@
-div(*ngIf="recipient; else emptyLinks")
-    button.heart-button
+// div(*ngIf="recipient; else emptyLinks")
+
+div 
+    button.heart-button((click)="beat()")
         span 
             img(src="assets/heart.svg", alt="Heartbeat")
-    
-    p Sending
-        b(style="font-size: 48px") {{ heartbeatCount }}
-        | heartbeats to 
-        b {{ recipient.name }}
 
-ng-template(#emptyLinks)
-    div
-        h2 You're not linked to anybody
-        p To send heartbeats to someone, link with them by entering their key below. If someone else wants to link with you, your key is 
-            b {{ key }}
-            |.
-        input([(ngModel)]="newKey", placeholder="Enter a key", style="display: inline")
-        button((click)="newLink()") Submit
+
+div 
+    p Sending  
+        span
+            b(style="font-size: 48px") {{ heartbeatCount }} 
+        | heartbeats to 
+        span
+            b {{ recipient.name }}
+
+
+// ng-template(#emptyLinks)
+//     div
+//         h2 You're not linked to anybody
+//         p To send heartbeats to someone, link with them by entering their key below. If someone else wants to link with you, your key is 
+//             b {{ key }}
+//             |.
+//         input([(ngModel)]="newKey", placeholder="Enter a key", style="display: inline")
+//         button((click)="newLink()") Submit
