@@ -5,6 +5,9 @@ div.card
     input.wide([(ngModel)]="username", placeholder="Username")
     input.wide([(ngModel)]="password", placeholder="Password", type="password")
     
+    small
+        p#error {{ err }}
+
 .actions
     button((click)="goToRegister()") New account
     button((click)="signIn()") Sign in
