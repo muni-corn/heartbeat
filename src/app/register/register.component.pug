@@ -1,27 +1,15 @@
 h1 Welcome!
-ng-container(*ngIf="!messages; else msgs")
-    div.card 
-        h2 Create an account
 
-        input.wide([(ngModel)]="username", placeholder="Username")
-        input.wide([(ngModel)]="password", placeholder="Password", type="password")
-        input.wide([(ngModel)]="passwordConfirm", placeholder="Confirm password", type="password")
-        
-        small
-            p Please be warned: since this is really just a school project (that's not getting the love it deserves), password hashing isn't integrated yet. Passwords are stored as plain text. 
-                i Do not enter a password you use anywhere else.
-    
+div.card 
+    h2 Create an account
 
-            p#error {{ errors }}
+    input.wide([(ngModel)]="username", placeholder="Username")
+    input.wide([(ngModel)]="password", placeholder="Password", type="password")
+    input.wide([(ngModel)]="passwordConfirm", placeholder="Confirm password", type="password")
 
-    .actions
-        button((click)="submit()") Submit
+    small
+        p#error {{ errors }}
 
-
-ng-template(#msgs) 
-    div.card 
-        small
-            p#msg {{ messages }}
-                b {{ id }}
-    
-
+.actions
+    button((click)="goToSignin()") Sign in instead
+    button((click)="submit()") Submit
