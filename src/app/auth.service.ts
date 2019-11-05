@@ -21,11 +21,11 @@ export class AuthService {
     // Returns an error as a string, or null
     public async signIn(username: string, password: string): Promise<string> {
         try {
-            this.currentUser.id = Number(await this.http.post('/api/sign_in.php', {
+            this.currentUser = await this.http.post<{ id: number, keycode: string }>('/api/sign_in.php', {
                 username, password
             }, {
-                responseType: 'text'
-            }).toPromise());
+                responseType: 'json'
+            }).toPromise<{ id: number, keycode: string }>();
         } catch (e) {
             if (!e.ok) {
                 switch (e.status) {
@@ -37,7 +37,7 @@ export class AuthService {
             }
         }
 
-        localStorage.setItem(localStorageKey, this.currentUser.id.toString());
+        localStorage.setItem(localStorageKey, JSON.stringify(this.currentUser));
         this.router.navigate(['/home']);
         return null;
     }
