@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LinkService} from 'src/link.service';
+import { LinkService } from 'src/link.service';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
     selector: 'app-home',
@@ -8,13 +9,17 @@ import {LinkService} from 'src/link.service';
 })
 export class HomeComponent implements OnInit {
 
+    key: string;
     newKey: string;
 
     constructor(
-        private linkService: LinkService
+        private linkService: LinkService,
+        private authService: AuthService
     ) { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+        this.key = this.authService.getUserKeycode();
+    }
 
     newLink() {
         this.linkService.newLinkRequest(this.newKey);
