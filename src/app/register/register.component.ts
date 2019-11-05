@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/user.service';
+import { AuthService } from 'src/app/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-register',
@@ -15,7 +16,10 @@ export class RegisterComponent implements OnInit {
     public id = '';
     public messages = '';
 
-    constructor(private userService: UserService) { }
+    constructor(
+        private authService: AuthService,
+        private router: Router
+    ) { }
 
     ngOnInit() { }
 
@@ -38,15 +42,14 @@ export class RegisterComponent implements OnInit {
             this.errors = '';
         }
 
-        this.id = await this.userService.newUser(this.username, this.password);
-        this.showSuccess();
+        if (await this.authService.register(this.username, this.password)) {
+            this.router.navigate(['/home']);
+        } else {
+            this.errors = 'There was an error registering you. Try again.';
+        }
     }
 
-    showSuccess() {
-        this.messages =
-            'Your account has been created! ' +
-            'Nothing else happens here yet. ' +
-            'But to demonstrate that the database is working, ' +
-            'here\'s the ID that was returned when we created your account:';
+    goToSignin() {
+        this.router.navigate(['/auth/login']);
     }
 }
