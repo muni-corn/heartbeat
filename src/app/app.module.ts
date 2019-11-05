@@ -8,20 +8,24 @@ import { AuthService } from 'src/app/auth.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { APIInterceptor } from 'src/app/api.interceptor';
+import { HomeModule } from 'src/app/home/home.module';
+import {AuthGuardService} from 'src/app/auth-guard.service';
 
 @NgModule({
     declarations: [
-        AppComponent,
+        AppComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        HomeModule
     ],
     providers: [
         HttpService,
         AuthService,
+        AuthGuardService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: APIInterceptor,
