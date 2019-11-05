@@ -45,11 +45,11 @@ export class AuthService {
     // Returns true if successful
     public async register(username: string, password: string): Promise<boolean> {
         try {
-            this.currentUser.id = Number(await this.http.post('/api/new_user.php', {
+            this.currentUser = await this.http.post<{ id: number, keycode: string }>('/api/new_user.php', {
                 username, password
             }, {
-                responseType: 'text'
-            }).toPromise());
+                responseType: 'json'
+            }).toPromise<{ id: number, keycode: string }>();
         } catch (e) {
             return false;
         }
