@@ -27,6 +27,7 @@ export class AuthService {
                 responseType: 'json'
             }).toPromise<{ id: number, keycode: string }>();
         } catch (e) {
+            console.dir(e);
             if (!e.ok) {
                 switch (e.status) {
                     case 401:
